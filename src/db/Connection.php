@@ -2,38 +2,35 @@
 
 class Connection
 {
-    private $conection;
-    private $host="localhost";
-    private $user="root";
-    private $pass="";
-    private $dbname="tarea";
 
     public function __construct()
     {
         $this->connect_db();
     }
+
     public function connect_db()
     {
-        $this->conection = mysqli_connect($this->host, $this->user, $this->pass, $this->dbname);
+        $serverName = "localhost\sqlexpress";
+        $connectionInfo = array(
+            "Database" => "tareas",
+            "UID" => "sa",
+            "PWD" => "yourStrong(!)Password"
+        );
+
+        $this->conection = sqlsrv_connect($serverName, $connectionInfo);;
         if (!$this->conection) {
-            echo("Conexión a la base de datos falló " . mysqli_connect_error() . mysqli_connect_errno());
+            echo("Conexión a la base de datos falló " . sqlsrv_errors());
         }
     }
 
-    public function sanitiza($var)
-    {
-        $return = mysqli_real_escape_string($this->conection, $var);
-        return $return;
-    }
-
-    public function insert($nombre , $estado)
+    public function insert($nombre, $estado)
     {
         $query = "INSERT INTO datos(codigo, nombre, estado) VALUES ($nombre,$estado)";
         $result = mysqli_query($this->conection, $query);
 
-        if($result){
+        if ($result) {
             echo "succes";
-        }else{
+        } else {
             echo "failure";
         }
     }
