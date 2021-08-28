@@ -1,12 +1,9 @@
-<br>
-<br>
-<br>
-<br>
 <h1>Lista de Empleados</h1>
 <a class="btn btn-success" href="?controller=User&method=create">
     Crear
 </a>
-<table class="table table-striped">
+<table class="table table-striped ">
+<!--<table class="table table-dark table-striped">-->
     <thead>
     <th>id</th>
     <th>Nombre</th>
