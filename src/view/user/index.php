@@ -24,7 +24,7 @@
                     <button>Editar</button>
                 </a>
 
-                <a href="?controller=User&method=">
+                <a href="?controller=User&method=delete&id=<?= $user->id ?>">
                     <button>Borrar</button>
                 </a>
             </td>
