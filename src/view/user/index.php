@@ -1,15 +1,19 @@
+<br>
+<br>
+<br>
+<br>
 <h1>Lista de Empleados</h1>
-
-<a href="?controller=User&method=create">
-    <button>Crear</button>
+<a class="btn btn-success" href="?controller=User&method=create">
+    Crear
 </a>
-<table>
+<table class="table table-striped">
     <thead>
     <th>id</th>
     <th>Nombre</th>
     <th>Apellido</th>
     <th>Email</th>
     <th>Status</th>
+    <th>Acciones</th>
     </thead>
     <tbody>
     <?php foreach (parent::all() as $user): ?>
@@ -20,12 +24,12 @@
             <td><?= $user->email ?></td>
             <td><?= $user->status ?></td>
             <td width="200">
-                <a href="?controller=User&method=edit&id=<?= $user->id ?>">
-                    <button>Editar</button>
+                <a class="btn btn-primary" href="?controller=User&method=edit&id=<?= $user->id ?>">
+                    Editar
                 </a>
 
-                <a href="?controller=User&method=delete&id=<?= $user->id ?>">
-                    <button>Borrar</button>
+                <a class="btn btn-danger" href="?controller=User&method=delete&id=<?= $user->id ?>">
+                    Borrar
                 </a>
             </td>
         </tr>
