@@ -77,5 +77,3 @@ spl_autoload_register(function ($class) {
 $controller = "{$controller}Controller";
 call_user_func([new $controller(), $method]);
 
-echo(phpinfo());
-

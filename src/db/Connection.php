@@ -6,7 +6,7 @@ class Connection
     public function connect(): PDO
     {
         try{
-            return new PDO('pg_connect:host=localhost:5432;dbname=tareas;charset=utf8;',
+            return new PDO('pgsql:host=localhost;dbname=tareas;',
                 'postgres',
                 '@ERT*>O',
                 [
