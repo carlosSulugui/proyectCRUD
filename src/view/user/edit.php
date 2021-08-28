@@ -17,9 +17,9 @@
             <label for="email">Email</label>
             <input type="text" name="status" id="status" required value="<?= $user->status ?>">
         </section>
-        <!--        <section >-->
-        <!--            <input type="submit" value="Actualizar" >-->
-        <!--            <a href="?controller=User" >Volver</a>-->
-        <!--        </section>-->
+                <section >
+                    <input type="submit" value="Actualizar">
+                    <a href="?controller=User" >Volver</a>
+                </section>
     </form>
 </section>

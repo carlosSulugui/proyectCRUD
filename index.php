@@ -58,7 +58,7 @@ session_start();
 $controller = isset($_GET['controller']) ? $_GET['controller'] : 'Index';
 $method = isset($_GET['method']) ? $_GET['method'] : 'index';
 
-spl_autoload_register(function($class){
+spl_autoload_register(function ($class) {
 //    if(file_exists("src/controller/{$class}Controller.php")){
 //        echo'exist conttroller';
 //        require_once "src/controller/UserController.php";
@@ -76,3 +76,6 @@ spl_autoload_register(function($class){
 
 $controller = "{$controller}Controller";
 call_user_func([new $controller(), $method]);
+
+echo(phpinfo());
+

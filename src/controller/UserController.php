@@ -22,7 +22,6 @@ class UserController extends User
 
     public function store()
     {
-        $_POST['password'] = password_hash($_POST['password'], PASSWORD_DEFAULT);
         echo parent::register($_POST) ? header('location: ?controller=User') : 'Error en el registro';
     }
 

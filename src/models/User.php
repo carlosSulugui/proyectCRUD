@@ -4,7 +4,7 @@ class User extends Connection{
 
     public function all(){
         try{
-            $result = parent::connect()->prepare("select * from empleados where status <> 0");
+            $result = parent::connect()->prepare("select * from empleados where status != '0'");
             $result->execute();
             return $result->fetchAll();
         }catch(Exception $e){
@@ -14,7 +14,7 @@ class User extends Connection{
 
     public function register($data){
         try{
-            $result = parent::connect()->prepare("insert into empleados (name, last_name, email, status)values (?, ?, ?, ?);");
+            $result = parent::connect()->prepare("insert into empleados (name, last_name, email, status) values (?, ?, ?, ?)");
             //values ('nombres', 'apellido ', 'email', 1);
             $result->bindParam(1, $data['name'], PDO::PARAM_STR);
             $result->bindParam(2, $data['last_name'], PDO::PARAM_STR);
