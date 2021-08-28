@@ -18,9 +18,9 @@
             <input type="text" name="status" id="status" required>
         </section>
 
-<!--        <section >-->
-<!--            <input type="submit" value="Registar">-->
-<!--            <a href="?controller=User" >Volver</a>-->
-<!--        </section>-->
+        <section >
+            <input type="submit" value="Guardar">
+            <a href="?controller=User" >Volver</a>
+        </section>
     </form>
 </section>
