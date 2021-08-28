@@ -20,10 +20,13 @@
             <td><?= $user->email ?></td>
             <td><?= $user->status ?></td>
             <td width="200">
-                <a href="?controller=user&method=edit&id=<?= $user->id ?>">
+                <a href="?controller=User&method=edit&id=<?= $user->id ?>">
                     <button>Editar</button>
                 </a>
-                <button>Borrar</button>
+
+                <a href="?controller=User&method=">
+                    <button>Borrar</button>
+                </a>
             </td>
         </tr>
     <?php endforeach; ?>

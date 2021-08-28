@@ -45,7 +45,12 @@ class UserController extends User
 
     public function delete()
     {
-
+        $_POST['id'] = $_GET['id'];
+        if (parent::delete($_POST)) {
+            header('location:?controller=User');
+        } else {
+            die('Error al actualizar');
+        }
     }
 
 }
