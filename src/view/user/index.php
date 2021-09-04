@@ -7,8 +7,6 @@
     <thead>
     <th>id</th>
     <th>Nombre</th>
-    <th>Apellido</th>
-    <th>Email</th>
     <th>Status</th>
     <th>Acciones</th>
     </thead>
@@ -17,8 +15,6 @@
         <tr>
             <td><?= $user->id ?></td>
             <td><?= $user->name ?></td>
-            <td><?= $user->last_name ?></td>
-            <td><?= $user->email ?></td>
             <td><?= $user->status ?></td>
             <td width="200">
                 <a class="btn btn-primary" href="?controller=User&method=edit&id=<?= $user->id ?>">

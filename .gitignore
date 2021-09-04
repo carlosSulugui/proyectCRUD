@@ -91,3 +91,4 @@ Homestead.json
 *.iml
 out
 gen
+/env.php

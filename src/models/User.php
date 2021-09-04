@@ -17,12 +17,9 @@ class User extends Connection
     public function register($data)
     {
         try {
-            $result = parent::connect()->prepare("insert into empleados (id, name, last_name, email, status) values ((select count(*) + 1 from empleados),?, ?, ?, ?)");
-            //values ('nombres', 'apellido ', 'email', 1);
-            $result->bindParam(1, $data['name'], PDO::PARAM_STR);
-            $result->bindParam(2, $data['last_name'], PDO::PARAM_STR);
-            $result->bindParam(3, $data['email'], PDO::PARAM_STR);
-            $result->bindParam(4, $data['status'], PDO::PARAM_STR);
+            $result = parent::connect()->prepare("insert into empleados (id, name, status) values ((select count(*) + 1 from empleados),?, ?)");
+            $result->bindParam(1, $data['name']);
+            $result->bindParam(2, $data['status']);
             return $result->execute();
         } catch (Exception $e) {
             die("Errro: " . $e->getMessage());
@@ -44,19 +41,18 @@ class User extends Connection
     public function update_register($data)
     {
         try {
-            $result = parent::connect()->prepare("update empleados set name = ?, last_name = ?, email = ?, status = ? where id = ?");
-            $result->bindParam(1, $data['name'], PDO::PARAM_STR);
-            $result->bindParam(2, $data['last_name'], PDO::PARAM_STR);
-            $result->bindParam(3, $data['email'], PDO::PARAM_STR);
-            $result->bindParam(4, $data['status'], PDO::PARAM_STR);
-            $result->bindParam(5, $data['id'], PDO::PARAM_INT);
+            $result = parent::connect()->prepare("update empleados set name = ?, status = ? where id = ?");
+            $result->bindParam(1, $data['name']);
+            $result->bindParam(2, $data['status']);
+            $result->bindParam(3, $data['id'], PDO::PARAM_INT);
             return $result->execute();
         } catch (Exception $e) {
             die("Error " . $e->getMessage());
         }
     }
 
-    public function delete_register($id){
+    public function delete_register($id)
+    {
         try {
             $result = parent::connect()->prepare("update empleados set status = '0' where id = ?");;
             $result->bindParam(1, $id['id'], PDO::PARAM_INT);
